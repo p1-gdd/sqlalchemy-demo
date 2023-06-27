@@ -1,0 +1,89 @@
+%###########################################
+%		Packages
+%###########################################
+\ProvidesPackage{layout}
+\usepackage{color}
+\usepackage[utf8]{inputenc}
+\usepackage[pdftex]{thumbpdf}
+\usepackage{gitinfo2}
+\usepackage[backend=bibtex8,backref=true,defernumbers=true,style=numeric]{biblatex}%
+% \addbibresource{p1_bibliographie.bib}%
+\defbibcheck{online}{\iffieldundef{url}{\skipentry}{}}
+\defbibcheck{notonline}{\iffieldundef{url}{}{\skipentry}}
+
+\setbeamertemplate{frametitle continuation}[from second]%
+\setbeamertemplate{navigation symbols}{}%remove navigation
+\setbeamertemplate{page number in head/foot}[totalframenumber]%
+% Now get rid of all the colours
+\setbeamercolor*{bibliography entry title}{fg=black}
+\setbeamercolor*{bibliography entry author}{fg=black}
+\setbeamercolor*{bibliography entry location}{fg=black}
+\setbeamercolor*{bibliography entry note}{fg=black}
+% and kill the abominable icon
+\setbeamertemplate{bibliography item}{\insertbiblabel}
+
+% Personnal colors
+\definecolor{DarkGreen}{rgb}{0,0.75,0}%
+\definecolor{DarkRed}{rgb}{0.5,0,0}%
+\definecolor{DarkBlue}{rgb}{0,0,0.75}%
+%%%%%%%%%
+
+% Package de gestion des codes sources et listings
+\usepackage{listings}
+\usepackage{listingsutf8}
+\lstdefinestyle{p1Normal}{basicstyle=\scriptsize\ttfamily}
+\lstdefinestyle{p1Script}{basicstyle=\tiny\ttfamily}
+\lstdefinelanguage{diff}{%
+  comment=[f][\color{DarkRed}][0]{-},%
+  morecomment=[f][\color{DarkRed}][0]{<},%
+  morecomment=[f][\color{DarkGreen}][0]{+},%
+  morecomment=[f][\color{DarkGreen}][0]{>},%
+}%
+\lstset{% general command to set parameter(s), to be included in document environnement
+	style=p1Script,%
+	keywordstyle=\color{DarkRed},%
+	stringstyle=\color{DarkBlue},%
+	identifierstyle=,%
+	commentstyle=\color{DarkGreen},%
+	numbers=left,%
+	frame=trBL,%
+	breaklines=true,%
+	%prebreak={ \textbackslash{}},%
+	%postbreak={..\space},%
+	breakatwhitespace=true,%
+	escapeinside={(*@}{@*)},%
+	extendedchars=true,%
+	literate=%
+        {’}{{'}}1
+        {á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+        {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+        {à}{{\`a}}1 {è}{{\`e}}1 {ì}{{\`i}}1 {ò}{{\`o}}1 {ù}{{\`u}}1
+        {À}{{\`A}}1 {È}{{\'E}}1 {Ì}{{\`I}}1 {Ò}{{\`O}}1 {Ù}{{\`U}}1
+        {ä}{{\"a}}1 {ë}{{\"e}}1 {ï}{{\"i}}1 {ö}{{\"o}}1 {ü}{{\"u}}1
+        {Ä}{{\"A}}1 {Ë}{{\"E}}1 {Ï}{{\"I}}1 {Ö}{{\"O}}1 {Ü}{{\"U}}1
+        {â}{{\^a}}1 {ê}{{\^e}}1 {î}{{\^i}}1 {ô}{{\^o}}1 {û}{{\^u}}1
+        {Â}{{\^A}}1 {Ê}{{\^E}}1 {Î}{{\^I}}1 {Ô}{{\^O}}1 {Û}{{\^U}}1
+        {œ}{{\oe}}1 {Œ}{{\OE}}1 {æ}{{\ae}}1 {Æ}{{\AE}}1 {ß}{{\ss}}1
+        {ű}{{\H{u}}}1 {Ű}{{\H{U}}}1 {ő}{{\H{o}}}1 {Ő}{{\H{O}}}1
+        {ç}{{\c c}}1 {Ç}{{\c C}}1 {ø}{{\o}}1 {å}{{\r a}}1 {Å}{{\r A}}1
+        {│  }{{|~~~}}1 {─}{{-}}1 {└─}{{ |-}}1 {├─}{{ |-}}1 {€}{{\EUR}}1 {£}{{\pounds}}1%
+      }
+%%%%%%%%%
+\usepackage{amsfonts}
+\usepackage{amssymb}
+%%%%%%%%%
+
+%###########################################
+%		Commandes generales
+%###########################################
+\newcommand{\REVISIONS}{revision \gitAbbrevHash{}}
+
+\newcommand{\ME}{Gr\'egory~DAVID}
+\newcommand{\EMAIL}{\href{mailto:gregory.david@p1sec.com}{gregory.david@p1sec.com}}
+\newcommand{\MAILME}{\href{mailto:gregory.david@p1sec.com}{\ME}}
+
+%%% Commande pour supprimer en-t\^etes
+%%% et pied de page des pages vides
+\newcommand{\clearemptydoublepage}{%
+    \newpage{\pagestyle{empty}\cleardoublepage}%
+}

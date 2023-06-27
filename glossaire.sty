@@ -1,0 +1,54 @@
+%###########################################
+%   Glossary and acronym entries
+%###########################################
+\ProvidesPackage{glossaire}
+\usepackage[%
+style=altlistgroup,%
+acronym,%
+nosuper,%
+notree,%
+nopostdot]{glossaries}
+\makeglossaries%
+
+\newacronym{SQL}{SQL}{Structured Query Language}
+\newacronym{ORM}{ORM}{Object-Relational Mapping}
+\newacronym{TCP}{TCP}{Transmission Control Protocol}
+\newacronym{IP}{IP}{Internet Protocol}
+\newacronym{IPv4}{IPv4}{\acrshort{IP} version 4}
+\newacronym{IPv6}{IPv6}{\acrshort{IP} version 6}
+\newacronym{LAN}{LAN}{Local Area Network}
+
+\newacronym{i18n}{i18n}{Internationalization}
+\newacronym{API}{API}{Application Programming Interface}
+\newacronym{GNU}{GNU}{GNU's Not Unix}
+\newacronym{GPL}{GPL}{\glsentrytext{GNU} General Public License}
+\newacronym{GDB}{GDB}{The \acrshort{GNU} Project Debugger}
+\newacronym{Git}{Git}{Git-SCM}
+\newacronym{GitHub}{GitHub}{GitHub.com}
+\newacronym{SSL}{SSL}{Secure Socket Layer}
+\newacronym{SSH}{SSH}{Secure SHell}
+\newacronym{OS}{OS}{Operating System}
+\newacronym{PC}{PC}{Personal Computer}
+\newacronym{kernel}{kernel}{Linux kernel}
+
+\newglossaryentry{GNULINUX}{name=\glsentrytext{GNU}/Linux,
+    sort=GNULINUX, description={\gls{GNU} tools associated to
+        \gls{kernel}.} }
+
+\longnewglossaryentry{SQLALCHEMY}{name=\texttt{SQLAlchemy},
+    sort=SQLALCHEMY}{SQLAlchemy is the Python \glsentrytext{SQL}
+    toolkit and Object Relational Mapper that gives application
+    developers the full power and flexibility of \glsentrytext{SQL}.}
+
+\newglossaryentry{MARIADB}{name=\texttt{MariaDB}, sort={MARIADB},
+    description={\texttt{MariaDB Server} is one of the most popular
+        open source relational databases. It’s made by the original
+        developers of \texttt{MySQL} and guaranteed to stay open
+        source. It is part of most cloud offerings and the default in
+        most \gls{GNULINUX} distributions.}}
+
+\newglossaryentry{SQLITE}{name=\texttt{SQLite}, sort={SQLITE},
+    description={\texttt{SQLite} is a \texttt{C}-language library that
+        implements a small, fast, self-contained, high-reliability,
+        full-featured, \gls{SQL} database engine. \texttt{SQLite} is
+        the most used database engine in the world.}}
